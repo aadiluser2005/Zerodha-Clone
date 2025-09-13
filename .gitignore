@@ -1,0 +1,26 @@
+# Backend node modules
+Backend/node_modules/
+
+# Dashboard node modules
+dashboard/node_modules/
+
+# Frontend node modules
+frontend/node_modules/
+
+# Env files
+**/.env
+**/.env.local
+
+# Logs
+**/*.log
+
+# Build / dist output
+Backend/dist/
+dashboard/build/
+frontend/build/
+
+# OS/IDE junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
