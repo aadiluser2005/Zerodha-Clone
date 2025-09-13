@@ -15,8 +15,13 @@ const cookieParser=require("cookie-parser");
 const {authMiddleware}=require("./utils/authMiddleware.js");
 const {dashboardRoutes}=require("./routes/dashboard.routes.js");
 
+const allowedOrigins = [
+  process.env.FrontEnd_URL, 
+  process.env.Dashboard_URL
+];
+
 app.use(cors({
-  origin: [`${process.env.FrontEnd_UR}`,`${process.env.Dashboard_URL}`],
+  origin: allowedOrigins,
   credentials: true              
 }));
 
