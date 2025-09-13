@@ -51,7 +51,7 @@ export default function Signup() {
   const handleSubmit=(e)=>{
               e.preventDefault();
               //console.log("form submitted",formData);
-              const baseURL=process.env.Backend_URL;
+             const baseURL = process.env.REACT_APP_BACKEND_URL;
               const URL=formState===0?`${baseURL}/zerodha/signup`:`${baseURL}/zerodha/login`;
              // console.log(URL);
                axios.post(URL,{

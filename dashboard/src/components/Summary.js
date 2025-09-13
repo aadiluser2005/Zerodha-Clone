@@ -7,7 +7,8 @@ const Summary = () => {
 
    useEffect(()=>{
             ;(async()=>{
-              const res= await axios.get("http://localhost:8000/zerodha/dashboard/user",{withCredentials:true});
+              const backendURL=process.env.REACT_APP_BACKEND_URL;
+              const res= await axios.get(`${backendURL}/zerodha/dashboard/user`,{withCredentials:true});
               const user=res.data.user;
                // console.log(user[0].username);
                setUserName(user[0].username);
