@@ -29,14 +29,14 @@ const login=async(req,res)=>{
              if(isPasswordmatched){
               const token=  jwt.sign({email:email},'secret',{expiresIn:"1h"});
          
-              const isProduction = process.env.NODE_ENV === "production";
+            
 
-res.cookie("jwt", token, {
-    httpOnly: true,
-    secure: isProduction,
-    sameSite: isProduction ? "none" : "lax",
-    path: "/",
-});
+          res.cookie("jwt", token, {
+              httpOnly: true,
+              secure: true,
+             sameSite:  "none",
+              path: "/",
+              });
 
                 
                   res.status(200).json({message:"logged in successfully",redirectURL:`${process.env.BackEnd_URL}/zerodha/dashboard`});
