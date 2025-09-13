@@ -29,13 +29,15 @@ const login=async(req,res)=>{
              if(isPasswordmatched){
               const token=  jwt.sign({email:email},'secret',{expiresIn:"1h"});
          
-               res.cookie("jwt", token,{
-                httpOnly: true,
-                sameSite: "lax", 
-                secure: false,
-                path:"/",
-                 
-               });
+              const isProduction = process.env.NODE_ENV === "production";
+
+res.cookie("jwt", token, {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
+    path: "/",
+});
+
                 
                   res.status(200).json({message:"logged in successfully",redirectURL:`${process.env.BackEnd_URL}/zerodha/dashboard`});
                     return;
@@ -101,12 +103,13 @@ const logout=(req,res)=>{
 const token=req.cookies.jwt;
 //console.log(token);
        if(token){
-         res.clearCookie("jwt",{
-             httpOnly: true,
-                sameSite: "lax",  // allows cross-site GET redirects
-                secure: false,// must be false for HTTP localhost
-                path:"/",
-         });
+        res.clearCookie("jwt", {
+    httpOnly: true,
+    secure: true,     // HTTPS required
+    sameSite: "none", // needed if frontend and backend are on different domains
+    path: "/",
+});
+
          res.status(200).json({message:"User logged out successfully",url:`${process.env.FrontEnd_URL}`});
          return;
        }
