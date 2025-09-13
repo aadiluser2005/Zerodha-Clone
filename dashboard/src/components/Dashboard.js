@@ -19,7 +19,7 @@ import HoldingGraph from "./HoldingGraph";
 
 const Dashboard = () => {
       const[allHoldings,setAllHoldings]=useState([]);
-   const backendURL=process.env.Backend_URL;
+   const backendURL=process.env.REACT_APP_BACKEND_URL;
   useEffect(()=>{ 
 
       
