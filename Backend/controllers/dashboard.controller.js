@@ -3,9 +3,8 @@ const {PositionsModel}=require("../model/PositionsModel");
 const {userModel}=require("../model/userModel");
 const {WatchListModel}=require("../model/WatchListModel");
 
-
 const home=(req,res)=>{
-  res.status(200).json({url:"http://localhost:3001/",usermail:req.user.email});
+  res.status(200).json({url:process.env.Dashboard_URL,usermail:req.user.email});
 }
 
 const userinfo=async(req,res)=>{
