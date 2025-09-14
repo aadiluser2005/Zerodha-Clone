@@ -19,10 +19,10 @@ import HoldingGraph from "./HoldingGraph";
 
 const Dashboard = () => {
       const[allHoldings,setAllHoldings]=useState([]);
-   const backendURL=process.env.REACT_APP_BACKEND_URL;
+  
   useEffect(()=>{ 
 
-      
+       const backendURL=process.env.REACT_APP_BACKEND_URL;
         axios.get(`${backendURL}/zerodha/dashboard/allHoldings`,{withCredentials:true})
         .then( (response)=>{
          
