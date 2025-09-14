@@ -9,7 +9,7 @@ const Positions = () => {
   const[allPositions,setAllPositions]=useState([]);
 
   useEffect(()=>{
-     const backendURL=process.env.Backend_URL;
+     const backendURL=process.env.REACT_APP_BACKEND_URL;
    axios.get(`${backendURL}/zerodha/dashboard/allPositions`,{withCredentials:true}).then((res)=>{
       setAllPositions(res.data);
     }).catch(e=>{
