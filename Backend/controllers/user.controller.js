@@ -39,7 +39,7 @@ const login=async(req,res)=>{
               });
 
                 
-                  res.status(200).json({message:"logged in successfully",redirectURL:`${process.env.Dashboard_URL}/zerodha/dashboard`});
+                  res.status(200).json({message:"logged in successfully",redirectURL:`${process.env.BackEnd_URL}/zerodha/dashboard`});
                     return;
              }else{
                   res.status(400).json({message:"Wrong password or mail"});
