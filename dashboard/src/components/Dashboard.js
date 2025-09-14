@@ -30,7 +30,7 @@ const Dashboard = () => {
         }).catch(e=>{
           const baseURL=process.env.REACT_APP_API_URL;
           if( e.response&&e.response.status===401){
-          //  window.location.href=`${baseURL}/error`;
+           window.location.href=`${baseURL}/error`;
           }
          
           console.log("error occured while fecthing data")});
