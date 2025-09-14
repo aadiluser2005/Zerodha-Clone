@@ -15,10 +15,7 @@ const cookieParser=require("cookie-parser");
 const {authMiddleware}=require("./utils/authMiddleware.js");
 const {dashboardRoutes}=require("./routes/dashboard.routes.js");
 
-const allowedOrigins = [
-  process.env.FrontEnd_URL, 
-  process.env.Dashboard_URL
-];
+
 
 app.use(cors({
   origin:["https://zerodha-clone-1-oul9.onrender.com","https://zerodha-clone-vvnx.onrender.com"],
@@ -40,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 
  
 app.use("/zerodha",userRoutes);
-app.use("/zerodha/dashboard",dashboardRoutes);
+app.use("/zerodha/dashboard",authMiddleware,dashboardRoutes);
 
 
 
