@@ -19,9 +19,9 @@ const WatchList = () => {
   const [watchlist,setWatchList]=useState([]);
   
   useEffect(()=>{ 
-
       
-        axios.get("http://localhost:8000/zerodha/dashboard/allwatchlist",{withCredentials:true})
+       const backendURL=process.env.REACT_APP_BACKEND_URL;
+        axios.get(`${backendURL}/zerodha/dashboard/allwatchlist`,{withCredentials:true})
         .then( (response)=>{
           console.log(response.data);
           setWatchList(response.data);
