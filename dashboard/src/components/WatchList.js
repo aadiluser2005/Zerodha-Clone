@@ -27,7 +27,8 @@ const WatchList = () => {
           setWatchList(response.data);
         }).catch(e=>{
           if( e.response&&(e.response.status===401||e.response.status===403)){
-            window.location.href="http://localhost:3000/error";
+              const baseURL=process.env.REACT_APP_API_URL;
+            window.location.href=`${baseURL}`;
           }
          
           console.log("error occured while fecthing data")});
