@@ -38,6 +38,9 @@ const WatchList = () => {
 
     
   const labels=watchlist.map((subArray)=>subArray["name"]);
+    const colors = watchlist.map((_, i) => 
+  `hsl(${(i * 360) / watchlist.length}, 70%, 60%)`
+);
  console.log(labels);
     const data = {
   labels,
@@ -45,26 +48,29 @@ const WatchList = () => {
     { 
       label: 'Price',
       data: watchlist.map((stock)=>stock.price),
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(255, 159, 64, 0.5)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
+      backgroundColor: colors,
+      borderColor: colors,
       borderWidth: 1,
     },
   ],
 };
+
+   const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: "bottom",
+      labels: {
+        boxWidth: 12,
+        font: {
+          size: 10
+        }
+      }
+    }
+  }
+};
+   
 
 
   return(
@@ -89,7 +95,9 @@ const WatchList = () => {
         )})}
       </ul>
 
-      <DoughnutChart data={data}></DoughnutChart>
+     <div style={{width:"100%", height:"400px"}}>
+           <DoughnutChart data={data} options={options}></DoughnutChart>
+        </div>
     </div>
   );
 };
