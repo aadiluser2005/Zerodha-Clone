@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 
  
 app.use("/zerodha",userRoutes);
-app.use("/zerodha/dashboard",authMiddleware,dashboardRoutes);
+app.use("/zerodha/dashboard",dashboardRoutes);
 
 
 
