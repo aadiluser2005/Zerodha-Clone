@@ -34,7 +34,7 @@ const Menu = () => {
     setSelectedMenu(index);
    }
    const handlelogout=async()=>{
-    const backendURL=process.env.Backend_URL;
+     const backendURL=process.env.REACT_APP_BACKEND_URL;
        try {
          const res= await axios.get(`${backendURL}/zerodha/logout`,{withCredentials:true});
          
