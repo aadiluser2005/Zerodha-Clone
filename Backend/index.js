@@ -21,7 +21,7 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin:["https://zerodha-clone-3-x0y8.onrender.com","https://zerodha-clone-4-6x08.onrender.com"],
+  origin:["https://zerodha-clone-1-oul9.onrender.com","https://zerodha-clone-vvnx.onrender.com"],
   credentials: true              
 }));
 
